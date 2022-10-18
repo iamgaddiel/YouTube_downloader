@@ -28,11 +28,11 @@ class Downloader():
             video.captions.get_by_language_code('en').generate_srt_captions()
         video.streams.filter(progressive=True, file_extension='mp4', res='720p').first().download()
 
-        print('download complete....')
+        print('download complete....') 
     
     def playlist_downloader(self, video_url: str):
         video = TY(video_url)
-        
+
         video_title = video.title
 
         print(f'Downloading video: {video_title}')
