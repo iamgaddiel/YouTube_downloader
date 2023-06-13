@@ -33,8 +33,8 @@ def download_video(video_url: str):
 
     print('downloading....')
     save_thumbnail(video.thumbnail_url, f'{video_title}.jpg')
-    if video.caption_captions.has_key('en'):
-        video.captions.get_by_language_code('en').generate_srt_captions()
+    #if video.caption_captions.has_key('en'):
+    #    video.captions.get_by_language_code('en').generate_srt_captions()
     video.streams.filter(progressive=True, file_extension='mp4', res='720p').first().download()
 
     print('download complete....')
@@ -49,7 +49,8 @@ def download_video(video_url: str):
 
 
 if __name__ == "__main__":
-    video_url = "https://youtu.be/KiNBhjeMI4Y?list=PLdHg5T0SNpN0ygjV4yGXNct25jY_ue70U"
+    # video_url = "https://youtu.be/KiNBhjeMI4Y?list=PLdHg5T0SNpN0ygjV4yGXNct25jY_ue70U"
+    video_url = input("Enter video url: ")
     download_video(video_url)
 
 # TODO:  include resolution selection
